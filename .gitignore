@@ -1,0 +1,2 @@
+#ignore commiting the .env file
+/.env
