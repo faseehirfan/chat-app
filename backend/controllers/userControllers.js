@@ -42,4 +42,22 @@ const registerUser = asyncHandler(async (req,res) => {
     }
 });
 
+
+const authUser = asyncHandler(async(req,res) => {  //login functionality. 
+    const { email, password } = request.body;
+
+    const user = await User.findOne({ email });
+    if (user && () ) {
+            res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            pic: user.pic,
+            token:generateToken(user._id), //create a new JWT token and send to user when user registers. 
+        });
+    } else {
+        res.status(400);
+        throw new Error("Invalid Email or Password");
+    }
+});
 module.exports = { registerUser };
