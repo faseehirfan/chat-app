@@ -10,11 +10,13 @@ const app = express();
 dotenv.config();
 connectDB();
 
+app.use(express.json()); // telling server to accept json data that we are taking from front end. 
+
 app.get('/', (req, res) => {
     res.send("API is running");
 })
 
-//app.use('/api/user', userRoutes);    
+app.use('/api/user', userRoutes);    
 
 
 const PORT = process.env.PORT || 5000;

@@ -1,7 +1,11 @@
 const asyncHandler = require("express-async-handler");
 //Using the express aysnc handler to handle errors automatically. 
 const User = require("../models/userModel");
-//import User model 
+//import User model
+const generateToken = require("../config/generateToken");
+//import jwt token function
+
+
 
 const registerUser = asyncHandler(async (req,res) => {
     const { name, email, password, pic } = req.body;
@@ -30,7 +34,7 @@ const registerUser = asyncHandler(async (req,res) => {
             name: user.name,
             email: user.email,
             pic: user.pic,
-            token:generateToken(user_id), //create a new JWT token and send to user when user registers. 
+            token:generateToken(user._id), //create a new JWT token and send to user when user registers. 
         });
     } else {                    // checking for an error in creating a user. 
         res.status(400);
