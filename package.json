@@ -9,6 +9,7 @@
   "author": "Faseeh Irfan",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.3"
