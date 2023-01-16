@@ -1,4 +1,5 @@
 import { ViewIcon } from "@chakra-ui/icons";
+import { useDisclosure } from "@chakra-ui/hooks"
 import {
   Modal,
   ModalOverlay,
@@ -8,7 +9,6 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  useDisclosure,
   IconButton,
   Text,
   Image,
