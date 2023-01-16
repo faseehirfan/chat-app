@@ -60,4 +60,20 @@ const authUser = asyncHandler(async(req,res) => {  //login functionality.
         throw new Error("Invalid Email or Password");
     }
 });
-module.exports = { registerUser, authUser };
+
+// search for user api
+const allUsers = asyncHandler(async (req, res) => {
+    const keyword = req.query.search 
+   ? {
+       $or: [
+         { name: { $regex: req.query.search, $options: "i" } },  // regex helps us match strings in mongo DB and helps us filter them
+         { email: { $regex: req.query.search, $options: "i" } }, // "i" is to make it uncasesensitive.
+       ],
+     }
+   : {};
+
+ const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+ res.send(users);
+});
+
+module.exports = { registerUser, authUser , allUsers};
