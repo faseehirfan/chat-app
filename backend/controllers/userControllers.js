@@ -72,6 +72,7 @@ const allUsers = asyncHandler(async (req, res) => {
      }
    : {};
 
+    //returns every user except the current user that is logged in.
  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
  res.send(users);
 });
