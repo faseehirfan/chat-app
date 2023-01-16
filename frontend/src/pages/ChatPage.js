@@ -1,27 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
-
+import { ChatState } from "../Context/chatProvider";
 
 const ChatPage = () => {
-    const [chats, setChats] = useState([])
-
-    const fetchChats = async () => {
-        const { data } = await axios.get('/api/chat');
-        
-        setChats(data);
-    };
-
-    useEffect(() => {
-        fetchChats();
-    
-    }, []);
-    
-
+    const { user } = ChatState();
     return (
-        <div>
-            {chats.map((chat) =>
-            (<div key= {chat._id}>{chat.chatName} </div>
-            ))}
+        <div style={{ width: "100%" }}>
+            {user && <SideDrawer />}
         </div>
     );
 };
