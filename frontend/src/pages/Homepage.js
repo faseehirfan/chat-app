@@ -26,7 +26,7 @@ const Homepage = () => {
   
   return (<Container maxW="xl" centerContent>
     <Box
-        d="flex"
+        display="flex"
         justifyContent="center"
         p={3}
         bg="white"
@@ -59,4 +59,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage
+export default Homepage;
