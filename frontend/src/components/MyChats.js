@@ -45,7 +45,7 @@ const MyChats = ({ fetchAgain }) => {
         setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
         fetchChats();
         // eslint-disable-next-line
-    }, []);
+    }, [fetchAgain]);
 
     return (
         <Box
@@ -55,7 +55,7 @@ const MyChats = ({ fetchAgain }) => {
             p={3}
             bg="white"
             width={{ base: "100%", md: "31%" }}
-            height="97%"
+            //height="97%"
             borderRadius="lg"
             borderWidth="1px"
         >
